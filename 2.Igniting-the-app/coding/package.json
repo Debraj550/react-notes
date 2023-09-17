@@ -2,7 +2,6 @@
   "name": "coding",
   "version": "1.0.0",
   "description": "this is second module",
-  "main": "App.js",
   "scripts": {
     "test": "jest"
   },
