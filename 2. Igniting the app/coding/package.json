@@ -1,0 +1,17 @@
+{
+  "name": "coding",
+  "version": "1.0.0",
+  "description": "this is second module",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "debraj dhar",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}
