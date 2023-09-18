@@ -71,3 +71,6 @@ A: The Difference is stated below:
     <ThirdChildComponent />
 </TitleComponent>
 ```
+
+- Arrow function vs normal "function" keyword
+- Does JSX suffers from cyber attack ? - No, JSX curly braces sanitizes the data

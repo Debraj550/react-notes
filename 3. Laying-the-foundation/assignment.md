@@ -18,7 +18,8 @@
 - Role of type `attribute` in script tag? What `options can I use` there?
 - `{TitleComponent}` vs `{<TitleComponent/>}` vs `{<TitleComponent></TitleComponent>}` in `JSX`.
 - What is a Fucntional Component and a Class Component ?
--
+- Arrow function vs normal "function" keyword
+- Does JSX suffers from cyber attack ? - No, JSX curly braces sanitizes the data
 
 ## Coding Assignment:
 
