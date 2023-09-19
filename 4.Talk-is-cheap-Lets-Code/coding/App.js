@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import logo from "../coding/assets/logo.png";
+import logofull from "../coding/assets/logofull.png";
 import { restaurantList } from "./data/data";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = () => {
   return (
     <div className="header">
       <div className="logo-container">
-        <img className="logo" src={logo}></img>
+        <img className="logo" src={logofull}></img>
       </div>
       <div className="nav-items">
         <ul>

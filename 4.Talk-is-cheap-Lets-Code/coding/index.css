@@ -1,16 +1,16 @@
 .header {
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+  box-shadow: 0 0 11px rgba(0, 0, 0, 0.2);
   align-items: center;
 }
 
 .logo {
-  width: 150px;
+  width: 120px;
 }
 
 .nav-items {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .nav-items > ul {
@@ -24,14 +24,25 @@
 }
 
 .res-container {
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
 }
 
 .res-card {
   width: 320px;
-  margin: 5px;
+  padding: 10px;
+  margin: 10px;
+
+  border-radius: 2%;
   background-color: #eee;
+  transition: transform 0.2s, margin 0.2s;
+}
+
+.res-card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 11px rgba(0, 0, 0, 0.2);
+  transform: scale(0.97);
 }
 
 .res-card > img {
