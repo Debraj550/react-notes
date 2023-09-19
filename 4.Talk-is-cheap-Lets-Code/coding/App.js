@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import logo from "../coding/assets/logo.png";
+import { restaurantList } from "./data/data";
 
 const Header = () => {
   return (
@@ -20,10 +21,34 @@ const Header = () => {
   );
 };
 
-const RestaurentCard = () => {
+const RestaurantCard = ({
+  cloudinaryImageId,
+  name,
+  cuisines,
+  area,
+  lastMileTravelString,
+  costForTwoString,
+  avgRating,
+}) => {
   return (
-    <div>
-      <h3>Arslan</h3>
+    <div className="card">
+      <img
+        src={
+          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
+          cloudinaryImageId
+        }
+      />
+      <h2>{name}</h2>
+      <h4>{cuisines.join(", ")}</h4>
+      <h4>{area}</h4>
+      <span>
+        <h4>
+          <i class="fa-solid fa-star"></i>
+          {avgRating}
+        </h4>
+        <h4>{lastMileTravelString}</h4>
+        <h4>{costForTwoString}</h4>
+      </span>
     </div>
   );
 };
@@ -31,9 +56,13 @@ const RestaurentCard = () => {
 const Body = () => {
   return (
     <div className="body">
-      <div className="search"></div>
+      <div className="search">Search bar</div>
       <div className="res-container">
-        <RestaurentCard />
+        {restaurantList.map((restaurant) => {
+          return (
+            <RestaurantCard key={restaurant.data.id} {...restaurant.data} />
+          );
+        })}
       </div>
     </div>
   );
