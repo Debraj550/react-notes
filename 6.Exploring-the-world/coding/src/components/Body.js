@@ -13,10 +13,8 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(API_URL);
     const jsonData = await data.json();
-    console.log(
-      jsonData.data.cards[5].card.card.gridElements.infoWithStyle.restaurants
-    );
-   };
+    //console.log(jsonData.data.cards[2].data.data.cards);
+  };
 
   const handleToprated = () => {
     let tempData = [...allRestaurants];
