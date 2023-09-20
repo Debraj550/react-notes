@@ -5,11 +5,16 @@ import { API_URL } from "../utils/constants";
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState(restaurantList);
+  const [search, setSearch] = useState("");
 
+  console.log(search);
   useEffect(() => {
     fetchData();
   }, []);
 
+  const handleSearch = () => {
+    console.log(search);
+  };
   const fetchData = async () => {
     const data = await fetch(API_URL);
     const jsonData = await data.json();
@@ -29,6 +34,15 @@ const Body = () => {
   return (
     <div className="body">
       <div className="fliter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          ></input>
+          <button onClick={handleSearch}>Search</button>
+        </div>
         <button className="all-btn" onClick={handleAll}>
           All Restaurants
         </button>

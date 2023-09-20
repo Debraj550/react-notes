@@ -78,12 +78,17 @@
   color: rgb(203, 54, 0);
 }
 
+.fliter {
+  display: flex;
+  justify-content: center;
+}
+
 .filter-btn {
   cursor: pointer;
   margin: 10px;
 }
 
-.fliter {
-  display: flex;
-  justify-content: center;
+.all-btn {
+  cursor: pointer;
+  margin: 10px;
 }
