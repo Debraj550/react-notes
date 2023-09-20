@@ -2,7 +2,7 @@
 
 This is my own react notes taken from namaste-react course. Feel free to check out my notes and concepts.
 
-## 🔥 Clone this Repository
+## Clone this Repository 🐱 
 
 You need to write the following commands on the terminal screen(in vscode) so that you can run this project locally.
 
