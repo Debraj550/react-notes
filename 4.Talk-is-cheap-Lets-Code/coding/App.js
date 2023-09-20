@@ -15,7 +15,9 @@ const Header = () => {
           <li>Home</li>
           <li>About</li>
           <li>Contact Us</li>
-          <li>Cart</li>
+          <li>
+            <i className="fa-solid fa-cart-shopping"></i>
+          </li>
         </ul>
       </div>
     </div>
@@ -44,7 +46,7 @@ const RestaurantCard = ({
       <h4>{area}</h4>
       <span>
         <h4>
-          <i class="fa-solid fa-star"></i>
+          <i className="fa-solid fa-star"></i>
           {avgRating}
         </h4>
         <h4>{lastMileTravelString}</h4>
@@ -69,11 +71,28 @@ const Body = () => {
   );
 };
 
+const Footer = () => {
+  return (
+    <div className="footer">
+      Created By
+      <i className="fa-solid fa-heart"></i>
+      <a href="https://www.linkedin.com/in/debraj1234/" target="_blank">
+        Debraj Dhar
+      </a>
+      <i className="fa-solid fa-copyright"></i>2023
+      <strong>
+        Fake<span>Swiggy</span>
+      </strong>
+    </div>
+  );
+};
+
 const AppLayout = () => {
   return (
     <div className="app">
       <Header />
       <Body />
+      <Footer />
     </div>
   );
 };
