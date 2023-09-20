@@ -5,15 +5,19 @@ import { API_URL } from "../utils/constants";
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState(restaurantList);
+  const [filteredRestaurants, setFilteredRestaurants] =
+    useState(restaurantList);
   const [search, setSearch] = useState("");
 
-  console.log(search);
   useEffect(() => {
     fetchData();
   }, []);
 
   const handleSearch = () => {
-    console.log(search);
+    const searchData = allRestaurants.filter((res) =>
+      res.data.name.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredRestaurants(searchData);
   };
   const fetchData = async () => {
     const data = await fetch(API_URL);
@@ -22,13 +26,12 @@ const Body = () => {
   };
 
   const handleToprated = () => {
-    let tempData = [...allRestaurants];
-    tempData = tempData.filter((res) => res.data.avgRating > 4);
-    setAllRestaurants(tempData);
+    let tempData = allRestaurants.filter((res) => res.data.avgRating > 4);
+    setFilteredRestaurants(tempData);
   };
 
   const handleAll = () => {
-    setAllRestaurants([...restaurantList]);
+    setFilteredRestaurants(allRestaurants);
   };
 
   return (
@@ -51,7 +54,7 @@ const Body = () => {
         </button>
       </div>
       <div className="res-container">
-        {allRestaurants.map((restaurant) => {
+        {filteredRestaurants.map((restaurant) => {
           return (
             <RestaurantCard key={restaurant.data.id} {...restaurant.data} />
           );
