@@ -25,19 +25,20 @@
 }
 
 .res-container {
+  margin: 0px 160px;
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
 }
 
 .res-card {
-  width: 320px;
+  width: 260px;
   padding: 10px;
   margin: 10px;
 
   border-radius: 2%;
   background-color: #eee;
-  transition: transform 0.4s, margin 0.2s;
+  transition: transform 0.4s;
 }
 
 .res-card:hover {
