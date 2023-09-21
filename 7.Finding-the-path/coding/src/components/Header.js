@@ -20,19 +20,27 @@ const Header = () => {
       <div className="nav-items">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">
+              <i class="fa-solid fa-house"></i>
+              {" Home"}
+            </Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/about">
+              <i class="fa-solid fa-circle-info"></i>
+              {" About"}
+            </Link>
           </li>
           <li>
             <Link to="/contact">Contact Us</Link>
           </li>
           <li>
             <i className="fa-solid fa-cart-shopping"></i>
+            <span> {" Cart"}</span>
           </li>
           <li>
             <button onClick={handleLogin}>
+              <i class="fa-solid fa-right-to-bracket"></i>
               {isLoggedin ? "logout" : "login"}
             </button>
           </li>

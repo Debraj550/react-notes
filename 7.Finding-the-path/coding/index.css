@@ -2,27 +2,44 @@
   display: flex;
   justify-content: space-between;
   background-color: #eee;
-  box-shadow: 0 0 11px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   align-items: center;
+  height: 85px;
 }
 
+.logo-container {
+  margin-left: 10rem;
+}
 .logo {
-  width: 120px;
-  margin: 0px 10px;
+  width: 100px;
+  margin: 10px 10px;
+  transition: transform 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.1);
 }
 
 .nav-items {
-  font-size: 1.5rem;
+  margin-right: 10rem;
+  font-size: 1.15rem;
 }
 
 .nav-items > ul {
   display: flex;
-  padding: 0px 10px;
 }
 
 .nav-items > ul > li {
   list-style-type: none;
-  padding: 0px 10px;
+  padding: 0px 30px;
+}
+.nav-items > ul > li > a {
+  color: black;
+  text-decoration: none;
+}
+
+.nav-items > ul > li > a:hover {
+  color: rgb(128, 128, 52);
 }
 
 .res-container {
