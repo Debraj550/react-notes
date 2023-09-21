@@ -24,16 +24,16 @@ const Body = () => {
     const data = await fetch(API_URL);
     const jsonData = await data.json();
 
-    let x =
-      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-    let temp = [];
-    if (x) {
-      x.map((res) => temp.push(res.info));
-    }
-    console.log(temp);
-    setAllRestaurants(temp);
-    setFilteredRestaurants(temp);
+    // let x =
+    //   jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+    //     ?.restaurants;
+    // let temp = [];
+    // if (x) {
+    //   x.map((res) => temp.push(res.info));
+    // }
+    // console.log(temp);
+    // setAllRestaurants(temp);
+    // setFilteredRestaurants(temp);
   };
 
   const handleToprated = () => {
@@ -67,7 +67,9 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurants.map((restaurant) => {
-          return <RestaurantCard key={restaurant.id} {...restaurant} />;
+          return (
+            <RestaurantCard key={restaurant.data.id} {...restaurant.data} />
+          );
         })}
       </div>
     </div>
