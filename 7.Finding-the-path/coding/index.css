@@ -1,6 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
+  background-color: #eee;
   box-shadow: 0 0 11px rgba(0, 0, 0, 0.2);
   align-items: center;
 }
@@ -95,4 +96,9 @@
 .all-btn {
   cursor: pointer;
   margin: 10px;
+}
+
+.res-card-links {
+  text-decoration: none;
+  color: black;
 }

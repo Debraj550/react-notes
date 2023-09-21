@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { restaurantList } from "../data/data";
 import RestaurantCard from "./RestaurantCard";
 import { API_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState(restaurantList);
@@ -15,7 +16,7 @@ const Body = () => {
 
   const handleSearch = () => {
     const searchData = allRestaurants.filter((res) =>
-      res.name.toLowerCase().includes(search.toLowerCase())
+      res.data.name.toLowerCase().includes(search.toLowerCase())
     );
     setFilteredRestaurants(searchData);
   };
@@ -37,7 +38,7 @@ const Body = () => {
   };
 
   const handleToprated = () => {
-    let tempData = allRestaurants.filter((res) => res.avgRating > 4);
+    let tempData = allRestaurants.filter((res) => res.data.avgRating > 4);
     setFilteredRestaurants(tempData);
   };
 
@@ -55,6 +56,7 @@ const Body = () => {
             className="search-box"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
           ></input>
           <button onClick={handleSearch}>Search</button>
         </div>
@@ -68,7 +70,13 @@ const Body = () => {
       <div className="res-container">
         {filteredRestaurants.map((restaurant) => {
           return (
-            <RestaurantCard key={restaurant.data.id} {...restaurant.data} />
+            <Link
+              className="res-card-links"
+              to={"restaurants/" + restaurant.data.id}
+              key={restaurant.data.id}
+            >
+              <RestaurantCard {...restaurant.data} />
+            </Link>
           );
         })}
       </div>

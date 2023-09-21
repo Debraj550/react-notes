@@ -13,7 +13,9 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo-container">
-        <img className="logo" src={logofull}></img>
+        <Link to="/">
+          <img className="logo" src={logofull}></img>
+        </Link>
       </div>
       <div className="nav-items">
         <ul>
