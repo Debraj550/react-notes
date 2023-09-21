@@ -21,13 +21,13 @@ const Header = () => {
         <ul>
           <li>
             <Link to="/">
-              <i class="fa-solid fa-house"></i>
+              <i className="fa-solid fa-house"></i>
               {" Home"}
             </Link>
           </li>
           <li>
             <Link to="/about">
-              <i class="fa-solid fa-circle-info"></i>
+              <i className="fa-solid fa-circle-info"></i>
               {" About"}
             </Link>
           </li>
@@ -40,7 +40,7 @@ const Header = () => {
           </li>
           <li>
             <button onClick={handleLogin}>
-              <i class="fa-solid fa-right-to-bracket"></i>
+              <i className="fa-solid fa-right-to-bracket"></i>
               {isLoggedin ? "logout" : "login"}
             </button>
           </li>

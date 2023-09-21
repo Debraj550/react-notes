@@ -1,75 +1,87 @@
-# Chapter 07 - Finding the Path
+# Chapter 08 - Let's get Classy
 
-## Q: What are various ways to `add images` into our App? Explain with `code examples`.
+## Q: How do you create `Nested Routes` react-router-dom configuration?
 
-A: Using the `full URL of the image` for the web (CDN) or any public images.
-Example :
-
-```
-<img src="https://reactjs.org/logo-og.png" alt="React Image" />
-```
-
-Adding the image into the project
-`Drag your image into your project` and `import it` into the desired component
+A: We can create a `Nested Routes` inside a react router configuration as follows:
+first call createBrowserRouter for routing different pages
 
 ```
-import reactLogo from "./reactLogo.png";
-export default function App() {
-  return <img src={reactLogo} alt="react logo" />
-}
+const router = createBrowserRouter([
+   {
+      path: "/", // show path for routing
+      element: <Parent />, // show component for particular path
+      errorElement: <Error />, // show error component for path is different
+      children: [ // show children component for routing
+         {
+            path: "/path",
+            element: <Child />
+         }
+      ],
+   }
+])
 ```
 
-The correct way to structure images in your project is to add them in an `images` folder. If you are using other `assets` than just images, you might want to add all in the `assets` folders.
+Now we can create a nested routing for `/path` using `children` again as follows:
 
 ```
-import reactLogo from "../../assets/images/reactLogo.png";
-export default function App() {
-  return <img src={reactLogo} alt="react logo" />
-}
+const router = createBrowserRouter([
+   {
+      path: "/",
+      element: <Parent />,
+      errorElement: <Error />,
+      children: [
+         {
+            path: "/path",
+            element: <Child />,
+            children: [ // nested routing for subchild
+               {
+                  path: "child",      // Don't use '/' because then react-router-dom will understand it it's the direct path
+                  element: <SubChild />,
+               }
+            ],
+         }
+      ],
+   }
+])
 ```
 
-## Q: What would happen if we do `console.log(useState())`?
+## Q: Read about `createHashRouter`, `createMemoryRouter` from React Router docs.
 
-A: If we do `console.log(useState())`, we get an array `[undefined, function]` where first item in an array is `state` is `undefined` and the second item in an array is `setState` `function` is bound dispatchSetState.
+A: `createHashRouter` is useful if you are unable to configure your web server to direct all traffic to your React Router application. Instead of using normal URLs, it will use the `hash (#)` portion of the URL to manage the "application URL".
+Other than that, it is functionally the same as `createBrowserRouter`.
+For more reference [Read more](https://reactrouter.com/en/main/routers/create-hash-router)
 
-## Q: How will `useEffect` behave if we `don't add` a `dependency array`?
+`createMemoryRouter` Instead of using the browsers history a memory router manages it's own history stack in memory. It's primarily useful for testing and component development tools like Storybook, but can also be used for running React Router in any non-browser environment.
+For more reference [Read more](https://reactrouter.com/en/main/routers/create-memory-router)
 
-A: Syntax of `useEffect` is:
+## Q: What is the order of life cycle method calls in `Class Based Components`?
 
-```
-useEffect(() => {}, []);
-```
+A: Following is the order of lifecycle methods calls in `Class Based Components`:
 
-Case 1 : When the `dependency array is not included` in the arguments of `useEffect() hook`, the callback function will be executed `every time` the component is rendered and re-rendered.
+1. constructor()
+2. render ()
+3. componentDidMount()
+4. componentDidUpdate()
+5. componentWillUnmount()
 
-```
-useEffect(() => {
-	console.log("I run everytime this component rerenders")
-});
-```
+For more reference [React-Lifecycle-methods-Diagram](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
-Case 2 : When the `dependency array is empty` in the arguments of `useEffect() hook`, the callback function will be executed `only one time` during the initial render of the component.
+## Q: Why do we use `componentDidMount`?
 
-```
-useEffect(() => {
-	console.log("I Only run once (When the component gets mounted)")
-}, []);
-```
+A: The `componentDidMount()` method allows us to execute the React code when the component is already placed in the DOM (Document Object Model). This method is called during the Mounting phase of the React Life-cycle i.e after the component is rendered.
+Wwe can run any piece of react code to modify the components. For ex. It's the best place to `make API calls`.
 
-Case 3 : When the `dependency array contains a condition`, the callback function will be executed `one time` during the initial render of the component and also rerender if there is a `change in the condition`.
+## Q: Why do we use `componentWillUnmount`? Show with example.
 
-```
-useEffect(() => {
-	console.log("I run every-time when my condition changed")
-}, [condition]);
-```
+A: `componentWillUnmount()` is useful for the cleanup of the application when we switch routes from one place to another. Since we are working with a SPA(Single Page Application) the component process always runs in the background even if we switch to another route. So it is required to stop those processes before leaving the page. If we revisit the same page, a new process starts that affects the browser performance.
+For example, in Repo class, during `componentDidMount()` a timer is set with an interval of every one second to print in console. When the component is unmounted (users moves to a different page), the timer will be running in the background, which we might not even realize and causing huge performance issue. To avoid such situations the cleanup function can be done in componentWillUnmount, in this example `clearInterval`(timer) to clear the timer interval before unmounting Repo component.
 
-## Q: What is `SPA`?
+## Q: (Research) Why do we use `super(props)` in constructor?
 
-A: `Single Page Application (SPA)` is a web application that dynamically updates the webpage with data from web server without reloading/refreshing the entire page. All the HTML, CSS, JS are retrieved in the initial load and other data/resources can be loaded dynamically whenever required. An SPA is sometimes referred to as a `single-page interface (SPI)`.
+A: `super(props)` is used to inherit the properties and access of variables of the React parent class when we initialize our component.
+super() is used inside constructor of a class to derive the parent's all properties inside the class that extended it. If super() is not used, then Reference Error : Must call super constructor in derived classes before accessing 'this' or returning from derived constructor is thrown in the console.
+The main difference between super() and super(props) is the this.props is undefined in child's constructor in super() but this.props contains the passed props if super(props) is used.
 
-## Q: What is the difference between `Client Side Routing` and `Server Side Routing`?
+## Q: (Research) Why can't we have the `callback function` of `useEffect async`?
 
-A: In `Server-side routing or rendering (SSR)`, every change in URL, http request is made to server to fetch the webpage, and replace the current webpage with the older one.
-
-In `Client-side routing or rendering (CSR)`, during the first load, the webapp is loaded from server to client, after which whenever there is a change in URL, the router library navigates the user to the new page without sending any request to backend. All `Single Page Applications uses client-side routing`.
+A: `useEffect` expects it's callback function to return nothing or return a function (cleanup function that is called when the component is unmounted). If we make the callback function as `async`, it will return a `promise` and the promise will affect the clean-up function from being called.
