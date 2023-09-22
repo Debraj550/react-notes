@@ -13,8 +13,8 @@ const RestaurantCard = ({
   return (
     <div className="res-card">
       <img src={CDN_URL + cloudinaryImageId} />
-      <h2>{name}</h2>
-      <h4>{cuisines?.toString().slice(0, 40)}</h4>
+      <h3>{name}</h3>
+      <h4>{cuisines?.toString().slice(0, 30) + ".."}</h4>
       <h4>{area}</h4>
       <span>
         <h4>
