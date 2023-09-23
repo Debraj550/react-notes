@@ -3,9 +3,11 @@ import { restaurantList } from "../data/data";
 import RestaurantCard from "./RestaurantCard";
 import { API_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState(restaurantList);
+  const onlineStatus = useOnlineStatus();
   const [filteredRestaurants, setFilteredRestaurants] =
     useState(restaurantList);
   const [search, setSearch] = useState("");
