@@ -1,30 +1,20 @@
-# Chapter 08 - Let's get Classy
+# Chapter 09 - Optimizing our App
 
 ## Theory Assignment:
 
-- How do you create `Nested Routes react-router-dom` configuration?
-- Read about `createHashRouter`, `createMemoryRouter` from React Router docs.
-- What is the `order of life cycle method calls` in `Class Based Components`?
-- Why do we use `componentDidMount`?
-- Why do we use `componentWillUnmount`? Show with `example`.
-- (Research) Why do we use `super(props)` in `constructor`?
-- (Research) Why `can't we have` the `callback function` of `useEffect async`?
+- When and why do we need `lazy()`?
+- What is `suspense`?
+- Why we got this `error`: A component was suspended while responding to `synchronous input`. This will cause the `UI` to be replaced with a `loading indicator`. To `fix this`, `updates that suspend` should be wrapped with `start transition`? How does `suspense fix` this error?
+- `Advantages and Disadvantages` of using this `code splitting pattern`?
+- When `do we and why do we need suspense`?
 
 ## Coding Assignment:
 
-- Create `Class Based` Component.
-  - Create 2 `class-based child components`.
-  - `Pass props` from `Parent to child`.
-  - Create a `constructor`.
-  - Create a `state variable` inside child.
-  - Use `this.setState` to update it.
-  - What if there are `multiple state variables`?
-  - Write a `console.log` for each lifecycle method.
-  - Play with the `console logs` to find out the `correct order of their execution`.
-- Create `interval` inside `componentDidMount`?
-  - Use `clearInterval` to `fix the issue` caused by the `interval`
+- Create your `custom hooks`.
+- Try out `lazy and suspense`
+- Make your `code clean`.
 
 ## References:
 
-- [React Life Cycle Method Diagram](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
-- [Akshay Saini Code Link](https://bitbucket.org/namastedev/namaste-react-live/src/master/)
+- [React Custom Hooks](https://reactjs.org/docs/hooks-custom.html)
+- [React lazy](https://beta.reactjs.org/reference/react/lazy)
