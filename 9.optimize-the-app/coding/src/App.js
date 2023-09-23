@@ -9,10 +9,8 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import useOnlineStatus from "./utils/useOnlineStatus";
-
-const Grocery = lazy(() => {
-  import("./components/Grocery");
-});
+//import Grocery from "./components/Grocery";
+const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
   const onlineStatus = useOnlineStatus();
@@ -49,7 +47,8 @@ const appRouter = createBrowserRouter([
       {
         path: "/grocery",
         element: (
-          <Suspense fallback={<h1>Loading...</h1>}>
+          <Suspense fallback={<h1>loading</h1>}>
+            {" "}
             <Grocery />,
           </Suspense>
         ),
