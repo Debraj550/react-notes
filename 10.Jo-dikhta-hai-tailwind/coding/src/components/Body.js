@@ -62,24 +62,33 @@ const Body = () => {
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
           ></input>
           <button
-            className="mx-2 px-4 py-1 bg-green-300 rounded-md"
+            className="ml-2 px-4 py-1 bg-green-300 rounded-md transition-transform hover:scale-105 hover:bg-green-400 "
             onClick={handleSearch}
           >
             Search
           </button>
         </div>
-        <button className="px-2 my-2" onClick={handleAll}>
-          All Restaurants
-        </button>
-        <button className="px-4 my-2" onClick={handleToprated}>
-          Top Rated Restaurants
-        </button>
+        <div>
+          <button
+            className="px-4 mx-2 my-2 py-1 bg-red-300 rounded-md"
+            onClick={handleAll}
+          >
+            All Restaurants
+          </button>
+          <button
+            className="px-4 mx-2 my-2 py-1 bg-red-300 rounded-md"
+            onClick={handleToprated}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
-      <div className="res-container">
+
+      <div className="flex flex-wrap justify-center">
         {filteredRestaurants.map((restaurant) => {
           return (
             <Link
-              className="res-card-links"
+              className="transition-transform hover:scale-[0.97] my-2 mx-2 bg-gray-200 hover:bg-gray-300 "
               to={"restaurants/" + restaurant.data.id}
               key={restaurant.data.id}
             >
