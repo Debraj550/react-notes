@@ -70,13 +70,14 @@ const Body = () => {
         </div>
         <div>
           <button
-            className="px-4 mx-2 my-2 py-1 bg-red-300 rounded-md"
+            className="px-4 mx-2 my-2 py-1 bg-red-300 hover:bg-red-400  rounded"
             onClick={handleAll}
           >
+            {" "}
             All Restaurants
           </button>
           <button
-            className="px-4 mx-2 my-2 py-1 bg-red-300 rounded-md"
+            className="px-4 mx-2 my-2 py-1 bg-red-300 hover:bg-red-400  rounded`"
             onClick={handleToprated}
           >
             Top Rated Restaurants
