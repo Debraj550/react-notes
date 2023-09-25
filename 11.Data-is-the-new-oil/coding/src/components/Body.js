@@ -71,7 +71,7 @@ const Body = () => {
           <input
             placeholder="Search a restaurant"
             type="text"
-            className="border border-gray-400 w-[400px] py-1"
+            className="border border-gray-400 w-[400px] py-1 px-1"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}

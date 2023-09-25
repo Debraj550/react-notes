@@ -27,7 +27,7 @@ const RestaurantCard = ({
       <div>
         <h4 className="text-gray-500 ">{area}</h4>
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 h-full bottom-0">
         <h5 className="text-md">
           <i className="fa-solid fa-star"></i>
           {avgRating}
