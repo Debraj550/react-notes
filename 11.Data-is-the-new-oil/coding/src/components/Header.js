@@ -11,18 +11,18 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between shadow-lg  bg-gray-100 mb-4 px-4 items-center">
+    <div className="flex justify-between shadow-lg px-4 items-center bg-gradient-to-br from-rose-200 to-rose-0 ">
       <div className="logo-container">
         <Link to="/">
           <img
-            className="w-28 transition-transform hover:scale-110"
+            className="w-28 transition-all hover:scale-110"
             src={logofull}
           ></img>
         </Link>
       </div>
       <div className="flex">
         <ul className="flex p-4 m-4">
-          <li className="px-4 hover:text-red-600 transition-transform hover:scale-110">
+          <li className="px-4 hover:text-red-600 transition-transform hover:scale-110 cursor-pointer">
             <Link to="/">
               <i className="fa-solid fa-house"></i>
               {" Home"}

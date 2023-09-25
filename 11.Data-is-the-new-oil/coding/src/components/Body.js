@@ -51,7 +51,22 @@ const Body = () => {
 
   return (
     <div className="body">
-      <div className="flex justify-center my-6">
+      <div className="flex justify-between my-6 mx-12 border-b-2 pb-4">
+        <div>
+          <button
+            className="px-4 mx-2 my-2 py-1 transition-all hover:scale-105 bg-red-300 hover:bg-red-400  rounded"
+            onClick={handleAll}
+          >
+            {" "}
+            All Restaurants
+          </button>
+          <button
+            className="px-4 mx-2 my-2 py-1 transition-all hover:scale-105 bg-red-300 hover:bg-red-400  rounded`"
+            onClick={handleToprated}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
         <div className="px-4 my-2">
           <input
             placeholder="Search a restaurant"
@@ -68,28 +83,13 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div>
-          <button
-            className="px-4 mx-2 my-2 py-1 bg-red-300 hover:bg-red-400  rounded"
-            onClick={handleAll}
-          >
-            {" "}
-            All Restaurants
-          </button>
-          <button
-            className="px-4 mx-2 my-2 py-1 bg-red-300 hover:bg-red-400  rounded`"
-            onClick={handleToprated}
-          >
-            Top Rated Restaurants
-          </button>
-        </div>
       </div>
 
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap ml-10 mr-10">
         {filteredRestaurants.map((restaurant) => {
           return (
             <Link
-              className="transition-transform hover:scale-[0.97] my-2 mx-2 bg-gray-200 hover:bg-gray-300 "
+              className="transition-all hover:scale-[0.97] hover:shadow-lg my-2 mx-2 border border-gray-200  bg-gray-100 hover:bg-gray-200 "
               to={"restaurants/" + restaurant.data.id}
               key={restaurant.data.id}
             >
