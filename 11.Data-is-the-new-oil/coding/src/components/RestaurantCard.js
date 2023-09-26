@@ -11,23 +11,26 @@ const RestaurantCard = ({
   avgRating,
 }) => {
   return (
-    <div className="px-2 py-2 w-[300px] gap-1 items-center">
-      <div>
-        <img className="rounded-lg mb-2" src={CDN_URL + cloudinaryImageId} />
+    <div className="px-2 py-2 w-[300px] gap-2 ">
+      <div className="">
+        <img
+          className="rounded-lg mb-2 overflow-x-hidden"
+          src={CDN_URL + cloudinaryImageId}
+        />
       </div>
-      <div>
+      <div className="">
         <h3 className="font-serif font-bold text-lg">{name}</h3>
       </div>
 
       <div>
-        <h4 className="text-gray-500 text-md  flex flex-wrap overflow-x-clip">
+        <h4 className="text-gray-500 text-md flex flex-wrap overflow-x-clip">
           {cuisines?.toString()}
         </h4>
       </div>
       <div>
         <h4 className="text-gray-500 ">{area}</h4>
       </div>
-      <div className="flex gap-4 h-full bottom-0">
+      <div className="flex gap-4 h-full items-end ">
         <h5 className="text-md">
           <i className="fa-solid fa-star"></i>
           {avgRating}
