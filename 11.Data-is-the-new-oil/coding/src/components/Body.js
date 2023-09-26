@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { restaurantList } from "../data/data";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { PromotedRestaurantCard } from "./RestaurantCard";
 import { API_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -11,6 +11,7 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] =
     useState(restaurantList);
   const [search, setSearch] = useState("");
+  const PromotedCard = PromotedRestaurantCard(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -93,7 +94,11 @@ const Body = () => {
               to={"restaurants/" + restaurant.data.id}
               key={restaurant.data.id}
             >
-              <RestaurantCard {...restaurant.data} />
+              {restaurant.data.promoted ? (
+                <PromotedCard {...restaurant.data} />
+              ) : (
+                <RestaurantCard {...restaurant.data} />
+              )}
             </Link>
           );
         })}
