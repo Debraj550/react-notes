@@ -30,6 +30,10 @@ const Body = () => {
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants ||
       json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants ||
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants ||
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
     console.log(json);
     setAllRestaurants(resDataList);
