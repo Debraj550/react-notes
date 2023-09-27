@@ -24,24 +24,20 @@ const Body = () => {
   };
 
   const fetchData = async () => {
-    try {
-      const data = await fetch(API_URL);
-      const json = await data?.json();
-      const resDataList =
-        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants ||
-        json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants;
-      console.log(resDataList);
-      setAllRestaurants(resDataList);
-      setFilteredRestaurants(resDataList);
-    } catch (err) {
-      console.log(err);
-    }
+    const data = await fetch(API_URL);
+    const json = await data?.json();
+    const resDataList =
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants ||
+      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+    console.log(json);
+    setAllRestaurants(resDataList);
+    setFilteredRestaurants(resDataList);
   };
 
   const handleToprated = () => {
-    let tempData = allRestaurants.filter((res) => res.info.avgRating > 4);
+    let tempData = allRestaurants?.filter((res) => res.info.avgRating > 4);
     setFilteredRestaurants(tempData);
   };
 

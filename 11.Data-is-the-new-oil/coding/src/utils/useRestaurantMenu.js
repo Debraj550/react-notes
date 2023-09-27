@@ -12,14 +12,9 @@ const useRestaurantMenu = (resId) => {
 
   const fetchMenu = async () => {
     try {
-      const data = await fetchData(url);
-      const restroInfo = data?.data?.cards?.[0]?.card?.card?.info;
-      console.log(data);
-      const offers =
-        data?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.offers;
-      const foodSectionCards =
-        data?.data?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards ||
-        data?.data?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+      const data = await fetch(url);
+      const json = await data?.json();
+      setResdata(json);
     } catch (err) {
       console.log(err);
     }
