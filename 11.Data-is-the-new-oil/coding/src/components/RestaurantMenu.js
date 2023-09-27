@@ -3,8 +3,8 @@ import useRestaurantMenu from "../utils/useRestaurantmenu";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-
   const resinfo = useRestaurantMenu(resId);
+
   console.log(resinfo);
   return (
     <div className="res-menu">
