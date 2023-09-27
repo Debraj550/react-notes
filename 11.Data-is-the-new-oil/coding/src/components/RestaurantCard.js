@@ -5,9 +5,9 @@ const RestaurantCard = ({
   cloudinaryImageId,
   name,
   cuisines,
-  area,
+  locality,
   lastMileTravelString,
-  costForTwoString,
+  costForTwo,
   avgRating,
 }) => {
   return (
@@ -32,8 +32,8 @@ const RestaurantCard = ({
         </h4>
       </div>
       <div className="my-2 flex justify-between font-semibold">
-        <h5 className="text-md text-gray-500 ">{area}</h5>
-        <h5 className="text-gray-500">{costForTwoString}</h5>
+        <h5 className="text-md text-gray-500 ">{locality}</h5>
+        <h5 className="text-gray-500">{costForTwo}</h5>
       </div>
     </div>
   );

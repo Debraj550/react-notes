@@ -6,10 +6,9 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
-  const [allRestaurants, setAllRestaurants] = useState(restaurantList);
+  const [allRestaurants, setAllRestaurants] = useState([]);
   const onlineStatus = useOnlineStatus();
-  const [filteredRestaurants, setFilteredRestaurants] =
-    useState(restaurantList);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [search, setSearch] = useState("");
   const PromotedCard = PromotedRestaurantCard(RestaurantCard);
 
@@ -19,29 +18,30 @@ const Body = () => {
 
   const handleSearch = () => {
     const searchData = allRestaurants.filter((res) =>
-      res.data.name.toLowerCase().includes(search.toLowerCase())
+      res.info.name.toLowerCase().includes(search.toLowerCase())
     );
     setFilteredRestaurants(searchData);
   };
 
   const fetchData = async () => {
-    const data = await fetch(API_URL);
-    const jsonData = await data.json();
-
-    // let x =
-    //   jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-    //     ?.restaurants;
-    // let temp = [];
-    // if (x) {
-    //   x.map((res) => temp.push(res.info));
-    // }
-    // console.log(temp);
-    // setAllRestaurants(temp);
-    // setFilteredRestaurants(temp);
+    try {
+      const data = await fetch(API_URL);
+      const json = await data?.json();
+      const resDataList =
+        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants ||
+        json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants;
+      console.log(resDataList);
+      setAllRestaurants(resDataList);
+      setFilteredRestaurants(resDataList);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleToprated = () => {
-    let tempData = allRestaurants.filter((res) => res.data.avgRating > 4);
+    let tempData = allRestaurants.filter((res) => res.info.avgRating > 4);
     setFilteredRestaurants(tempData);
   };
 
@@ -87,17 +87,17 @@ const Body = () => {
       </div>
 
       <div className="flex flex-wrap justify-center">
-        {filteredRestaurants.map((restaurant) => {
+        {filteredRestaurants?.map((restaurant, idx) => {
           return (
             <Link
               className="transition-transform hover:scale-[0.97] my-2 mx-2 bg-gray-200 hover:bg-gray-300 "
-              to={"restaurants/" + restaurant.data.id}
-              key={restaurant.data.id}
+              to={"restaurants/" + restaurant.info?.id}
+              key={idx}
             >
-              {restaurant.data.promoted ? (
-                <PromotedCard {...restaurant.data} />
+              {restaurant.data?.promoted ? (
+                <PromotedCard {...restaurant.info} />
               ) : (
-                <RestaurantCard {...restaurant.data} />
+                <RestaurantCard {...restaurant.info} />
               )}
             </Link>
           );
