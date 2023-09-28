@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logofull from "../assets/logofull.png";
 import { Link } from "react-router-dom";
 import About from "./About";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
-
+  const { loggedinUser } = useContext(UserContext);
   const handleLogin = () => {
     setIsLoggedin((prev) => !prev);
   };
 
   return (
-    <div className="flex justify-between shadow-lg px-4 items-center bg-gradient-to-br from-rose-200 to-rose-0 ">
+    <div className="flex justify-between shadow-lg px-4 items-center bg-gradient-to-b from-rose-300 to-rose-100 ">
       <div className="logo-container">
         <Link to="/">
           <img
@@ -44,12 +45,13 @@ const Header = () => {
             <i className="fa-solid fa-cart-shopping"></i>
             <span> {" Cart"}</span>
           </li>
-          <li className="px-4 transition-transform hover:scale-110">
+          <li className="px-4 hover:text-red-600 transition-transform hover:scale-110">
             <button onClick={handleLogin}>
               <i className="fa-solid fa-right-to-bracket"></i>
-              {isLoggedin ? "logout" : "login"}
+              {isLoggedin ? " logout" : " login"}
             </button>
           </li>
+          <li className="font-bold">{loggedinUser}</li>
         </ul>
       </div>
     </div>
