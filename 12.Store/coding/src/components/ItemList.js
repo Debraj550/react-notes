@@ -25,6 +25,7 @@ const ItemList = ({ items }) => {
                     : noimage
                 }
               ></img>
+              <button className="bg-black text-white p-2 text-sm">Add</button>
             </div>
           </div>
         );
