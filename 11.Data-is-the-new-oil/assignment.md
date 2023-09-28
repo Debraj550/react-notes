@@ -2,19 +2,19 @@
 
 ## Theory Assignment:
 
-- When and why do we need `lazy()`?
-- What is `suspense`?
-- Why we got this `error`: A component was suspended while responding to `synchronous input`. This will cause the `UI` to be replaced with a `loading indicator`. To `fix this`, `updates that suspend` should be wrapped with `start transition`? How does `suspense fix` this error?
-- `Advantages and Disadvantages` of using this `code splitting pattern`?
-- When `do we and why do we need suspense`?
+- What is `prop drilling`?
+- What is `lifting the state up`?
+- What are `context provider` and `context consumer`?
+- If you don't pass a value to the context does it take the default value?
+- How to use `context in class based and functional componenets`?
+- Can we use `multiple context`?
 
 ## Coding Assignment:
 
-- Create your `custom hooks`.
-- Try out `lazy and suspense`
-- Make your `code clean`.
+- Pracetice `react context with examples`.
+- Try out `Nested Contexts`.
 
 ## References:
 
-- [React Custom Hooks](https://reactjs.org/docs/hooks-custom.html)
-- [React lazy](https://beta.reactjs.org/reference/react/lazy)
+- [Lifting State Up](https://legacy.reactjs.org/docs/lifting-state-up.html)
+- [Context](https://legacy.reactjs.org/docs/context.html)
