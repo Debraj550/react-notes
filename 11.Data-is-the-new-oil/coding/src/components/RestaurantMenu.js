@@ -6,7 +6,7 @@ import { useState } from "react";
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const resinfo = useRestaurantMenu(resId);
-  const [showItems, setShowItems] = useState(false);
+  const [showItems, setShowItems] = useState({});
 
   const restroInfo = resinfo?.data?.cards?.[0]?.card?.card?.info;
   const offers =
@@ -19,12 +19,20 @@ const RestaurantMenu = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
-  const handleClick = () => {
-    setShowItems(!showItems);
+  const [openCardIdx, setOpenCardIdx] = useState(null);
+
+  const handleClick = (idx) => {
+    if (openCardIdx === idx) {
+      // If the clicked card is already open, close it
+      setOpenCardIdx(null);
+    } else {
+      // Otherwise, open the clicked card
+      setOpenCardIdx(idx);
+    }
   };
 
   console.log(foodSectionCards);
-  console.log(showItems);
+
   return (
     <div className="text-center p-2 m-6 text-2xl font-bold">
       <h1 className="mb-4">{restroInfo?.name}</h1>
@@ -33,17 +41,23 @@ const RestaurantMenu = () => {
           <div key={idx}>
             <div
               className="bg-white px-2 py-1 my-2 w-6/12 m-auto rounded-lg cursor-pointer"
-              onClick={() => handleClick()}
+              onClick={() => handleClick(idx)} // Pass the index to handleClick
             >
               <div className="flex justify-between border-b-2 border-gray-300">
                 <span className="font-bold text-lg">
-                  {list?.card?.card?.title} - (
+                  {list?.card?.card?.title} (
                   {list?.card?.card?.itemCards?.length})
                 </span>
-                {showItems ? <span>⬆️</span> : <span>⬇️</span>}
+                {openCardIdx === idx ? (
+                  <span className="text-lg">⬆️</span>
+                ) : (
+                  <span className="text-lg">⬇️</span>
+                )}
               </div>
               <div className="text-left bg-gray-50 mb-3">
-                {showItems && <ItemList items={list?.card?.card?.itemCards} />}
+                {openCardIdx === idx && (
+                  <ItemList items={list?.card?.card?.itemCards} />
+                )}
               </div>
             </div>
           </div>
