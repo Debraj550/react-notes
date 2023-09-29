@@ -34,11 +34,11 @@ const RestaurantMenu = () => {
       <h1 className="mb-4">{restroInfo?.name}</h1>
       {foodSectionCards?.map((list, idx) => {
         return (
-          <div key={idx}>
-            <div
-              className="bg-white px-2 py-1 my-2 w-6/12 m-auto rounded-lg cursor-pointer transition-all duration-300 ease-in-out"
-              onClick={() => handleClick(idx)}
-            >
+          <div
+            key={idx}
+            className="bg-white px-2 py-1 my-2 w-6/12 m-auto rounded-lg cursor-pointer "
+          >
+            <div className="bg-neutral-100 " onClick={() => handleClick(idx)}>
               <div className="flex justify-between border-b-2 border-gray-300">
                 <span className="font-bold text-lg">
                   {list?.card?.card?.title} (
@@ -50,17 +50,17 @@ const RestaurantMenu = () => {
                   <span className="text-lg">⬇️</span>
                 )}
               </div>
-              <div
-                className={`text-left bg-gray-50 mb-3 overflow-hidden ${
-                  openCardIdx === idx
-                    ? "max-h-screen transition-all duration-1000 ease-in-out"
-                    : "max-h-0 transition-all duration-1000 ease-in-out"
-                }`}
-              >
-                {openCardIdx === idx && (
-                  <ItemList items={list?.card?.card?.itemCards} />
-                )}
-              </div>
+            </div>
+            <div
+              className={`text-left bg-gray-50 mb-3 overflow-hidden transition-max-h ${
+                openCardIdx === idx
+                  ? "max-h-screen ease-in-out duration-500" // Adjust duration as needed
+                  : "max-h-0 ease-in-out duration-500" // Adjust duration as needed
+              }`}
+            >
+              {openCardIdx === idx && (
+                <ItemList items={list?.card?.card?.itemCards} />
+              )}
             </div>
           </div>
         );

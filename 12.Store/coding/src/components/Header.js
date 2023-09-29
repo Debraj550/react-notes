@@ -46,10 +46,9 @@ const Header = () => {
           </li>
           <li className="px-4 hover:text-red-600 transition-transform hover:scale-110">
             <i className="fa-solid fa-cart-shopping"></i>
-            <span>
-              {" "}
+            <Link to={"/cart"}>
               {" Cart"} ({cartItems.length})
-            </span>
+            </Link>
           </li>
           <li className="px-4 hover:text-red-600 transition-transform hover:scale-110">
             <button onClick={handleLogin}>

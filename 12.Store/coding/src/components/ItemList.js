@@ -4,7 +4,10 @@ import noimage from "../assets/noimage.jpeg";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 const ItemList = ({ items }) => {
-  const handleAddItem = useDispatch();
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
   return (
     <div>
       {items?.map((item) => {
@@ -30,9 +33,9 @@ const ItemList = ({ items }) => {
               ></img>
               <button
                 onClick={() => handleAddItem(item)}
-                className="bg-black text-white p-2 text-sm"
+                className="bg-black text-white px-3 py-1 text-xl font-bold rounded-lg"
               >
-                Add
+                +
               </button>
             </div>
           </div>
