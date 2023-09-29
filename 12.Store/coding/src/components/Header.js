@@ -3,10 +3,13 @@ import logofull from "../assets/logofull.png";
 import { Link } from "react-router-dom";
 import About from "./About";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
   const { loggedinUser } = useContext(UserContext);
+
+  const cartItems = useSelector((store) => store.cart.items);
   const handleLogin = () => {
     setIsLoggedin((prev) => !prev);
   };
@@ -43,7 +46,10 @@ const Header = () => {
           </li>
           <li className="px-4 hover:text-red-600 transition-transform hover:scale-110">
             <i className="fa-solid fa-cart-shopping"></i>
-            <span> {" Cart"}</span>
+            <span>
+              {" "}
+              {" Cart"} ({cartItems.length})
+            </span>
           </li>
           <li className="px-4 hover:text-red-600 transition-transform hover:scale-110">
             <button onClick={handleLogin}>
