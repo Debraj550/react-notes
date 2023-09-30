@@ -56,7 +56,7 @@ const Header = () => {
               {isLoggedin ? " logout" : " login"}
             </button>
           </li>
-          <li className="font-bold">{loggedinUser}</li>
+          {/* <li className="font-bold">{loggedinUser}</li> */}
         </ul>
       </div>
     </div>

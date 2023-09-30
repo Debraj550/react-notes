@@ -24,12 +24,15 @@ const AppLayout = () => {
       <UserContext.Provider value={{ loggedinUser: "Debraj Dhar" }}>
         <div className="app">
           <Header />
-          {onlineStatus === false ? (
-            <h1>You are offline. Check internet connection.</h1>
-          ) : (
-            <Outlet />
-          )}
+          <div className="min-h-screen">
+            {onlineStatus === false ? (
+              <h1>You are offline. Check internet connection.</h1>
+            ) : (
+              <Outlet />
+            )}
+          </div>
         </div>
+        <Footer />
       </UserContext.Provider>
     </Provider>
   );

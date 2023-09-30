@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantmenu";
 import ItemList from "./ItemList";
 import { useState } from "react";
+import Lottie from "lottie-react";
+import cooking from "../assets/cooking.json";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -26,7 +28,13 @@ const RestaurantMenu = () => {
       setOpenCardIdx(idx);
     }
   };
-
+  if (!foodSectionCards) {
+    return (
+      <div className="w-4/12 m-auto">
+        <Lottie animationData={cooking}></Lottie>
+      </div>
+    );
+  }
   console.log(foodSectionCards);
 
   return (
@@ -39,7 +47,7 @@ const RestaurantMenu = () => {
             className="bg-white  w-6/12 m-auto rounded-lg cursor-pointer "
           >
             <div
-              className="bg-neutral-100 px-4 rounded-xl mb-2"
+              className="bg-neutral-200 px-4 rounded-xl mb-1"
               onClick={() => handleClick(idx)}
             >
               <div className="flex justify-between border-b-2 border-gray-300">
@@ -55,10 +63,8 @@ const RestaurantMenu = () => {
               </div>
             </div>
             <div
-              className={`text-left bg-gray-50 mb-2 overflow-hidden transition-all ${
-                openCardIdx === idx
-                  ? "max-h-screen ease-in-out duration-500" // Adjust duration as needed
-                  : "max-h-0 ease-in-out duration-500" // Adjust duration as needed
+              className={`text-left bg-gray-50 mb-2 transition-all duration-700 overflow-y-scroll ${
+                openCardIdx === idx ? "max-h-[700px]" : "max-h-0"
               }`}
             >
               {openCardIdx === idx && (

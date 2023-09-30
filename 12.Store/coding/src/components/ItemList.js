@@ -14,7 +14,7 @@ const ItemList = ({ items }) => {
     dispatch(addItem(newItem));
   };
   return (
-    <div>
+    <div className=" overflow-y-scroll">
       {items?.map((item) => {
         return (
           <div key={item?.card?.info?.id} className="flex border-b-2">
@@ -31,12 +31,12 @@ const ItemList = ({ items }) => {
                 {item?.card?.info?.description}
               </p>
             </div>
-            <div className="w-3/12 relative">
+            <div className="w-3/12 relative items-center">
               <button
                 onClick={() => handleAddItem(item)}
-                className=" absolute bottom-0 bg-black text-white px-3 py-1 text-xl font-extrabold border-t-2 border-b-2 border-gray-400 rounded-lg "
+                className=" absolute  bg-red-600 text-white px-3 py-1 text-sm font-extrabold border-t-2 border-b-2 border-gray-400 rounded-lg "
               >
-                +
+                Add to cart
               </button>
               <img
                 className="p-1 rounded-lg"
