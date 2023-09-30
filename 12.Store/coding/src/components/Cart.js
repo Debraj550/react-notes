@@ -37,11 +37,16 @@ const Cart = () => {
   console.log(cartData);
   return (
     <div>
-      <h2 className="flex justify-center p-4 m-4 font-bold text-2xl">Cart</h2>
+      <h2
+        className="flex justify-center p-2 mx-auto text-center font-mono font-bold text-lg mt-10 mb-5 w-6/12 bg-gray-700
+       text-white rounded-lg"
+      >
+        Cart
+      </h2>
       <div className="bg-white-300">
         {cartData.map((item, idx) => (
           <div
-            className="bg-slate-50 rounded-lg border-b-2 mb-4 p-4  w-8/12 m-auto flex items-center justify-between"
+            className="bg-slate-50 rounded-lg border-b-2 mb-4 p-4  w-7/12 m-auto flex items-center justify-between"
             key={idx}
           >
             <div className="">
@@ -80,12 +85,18 @@ const Cart = () => {
           </div>
         ))}
       </div>
-      <div className="w-8/12 m-auto flex justify-end">
+      <div className="w-7/12 m-auto flex justify-end">
         <button
           onClick={() => handleEmptyCart()}
           className=" bg-red-500 text-white font-bold p-2 m-2 rounded-lg transition-all hover:scale-90"
         >
           Empty Cart
+        </button>
+        <button
+          onClick={() => handleEmptyCart()}
+          className=" bg-red-500 text-white font-bold p-2 m-2 rounded-lg transition-all hover:scale-90"
+        >
+          Add to checkout
         </button>
       </div>
     </div>

@@ -32,12 +32,6 @@ const ItemList = ({ items }) => {
               </p>
             </div>
             <div className="w-3/12 relative items-center">
-              <button
-                onClick={() => handleAddItem(item)}
-                className=" absolute  bg-red-600 text-white px-3 py-1 text-sm font-extrabold border-t-2 border-b-2 border-gray-400 rounded-lg "
-              >
-                Add to cart
-              </button>
               <img
                 className="p-1 rounded-lg"
                 src={
@@ -46,6 +40,13 @@ const ItemList = ({ items }) => {
                     : noimage
                 }
               ></img>
+              <button
+                onClick={() => handleAddItem(item)}
+                className="border-1 bottom-0
+                 bg-black text-white px-3 py-1 text-sm font-extrabold border-2 border-gray-700 rounded-lg w-full"
+              >
+                Add to cart
+              </button>
             </div>
           </div>
         );

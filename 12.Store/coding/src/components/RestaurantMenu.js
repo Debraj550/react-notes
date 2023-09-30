@@ -50,15 +50,15 @@ const RestaurantMenu = () => {
               className="bg-neutral-200 px-4 rounded-xl mb-1"
               onClick={() => handleClick(idx)}
             >
-              <div className="flex justify-between border-b-2 border-gray-300">
-                <span className="font-bold text-lg">
+              <div className="flex justify-between border-b-2 border-gray-300 items-center">
+                <span className="font-bold py-3 text-lg">
                   {list?.card?.card?.title} (
                   {list?.card?.card?.itemCards?.length})
                 </span>
                 {openCardIdx === idx ? (
-                  <span className="text-lg">⬆️</span>
+                  <span className="text-xl">⬆️</span>
                 ) : (
-                  <span className="text-lg">⬇️</span>
+                  <span className="text-xl">⬇️</span>
                 )}
               </div>
             </div>
