@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import cartSlice, { removeItem, clearCart, addItem } from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constants";
+import Lottie from "lottie-react";
+import emptycart from "../assets/emptycart.json";
 
 const Cart = () => {
   const cartData = useSelector((state) => state.cart.items);
@@ -18,7 +20,16 @@ const Cart = () => {
   const handleItemAdd = (item) => {
     dispatch(addItem(item));
   };
-
+  if (cartData.length === 0) {
+    return (
+      <div className="w-6/12 m-auto">
+        <h1 className="text-center font-mono font-bold text-lg mt-10 bg-red-500 text-white rounded-lg">
+          No items in the cart.
+        </h1>
+        <Lottie className="bg-slate-50" animationData={emptycart}></Lottie>
+      </div>
+    );
+  }
   console.log(cartData);
   return (
     <div>

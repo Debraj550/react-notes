@@ -14,7 +14,9 @@ const cartSlice = createSlice({
 
       if (existingItem) {
         existingItem.quantity += 1;
-        existingItem.totalPrice += existingItem.totalPrice;
+        existingItem.totalPrice +=
+          (existingItem.card.info.price ||
+            existingItem.card.info.defaultPrice) / 100;
       } else {
         state.items.push({
           card: card,
@@ -32,6 +34,9 @@ const cartSlice = createSlice({
 
       if (existingItem) {
         existingItem.quantity -= 1;
+        existingItem.totalPrice -=
+          (existingItem.card.info.price ||
+            existingItem.card.info.defaultPrice) / 100;
       }
       if (existingItem && existingItem.quantity === 0) {
         const indexToRemove = state.items.indexOf(existingItem);
