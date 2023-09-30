@@ -6,7 +6,11 @@ import { addItem } from "../utils/cartSlice";
 const ItemList = ({ items }) => {
   const dispatch = useDispatch();
   const handleAddItem = (item) => {
-    const newItem = { ...item, quantity: 1 };
+    const newItem = {
+      ...item,
+      quantity: 1,
+      totalPrice: (item.card.info.price || item.card.info.defaultPrice) / 100,
+    };
     dispatch(addItem(newItem));
   };
   return (

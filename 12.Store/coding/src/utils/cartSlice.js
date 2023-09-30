@@ -13,9 +13,14 @@ const cartSlice = createSlice({
       );
 
       if (existingItem) {
-        existingItem.quantity += action.payload.quantity;
+        existingItem.quantity += 1;
+        existingItem.totalPrice += existingItem.totalPrice;
       } else {
-        state.items.push(action.payload);
+        state.items.push({
+          card: card,
+          quantity: action.payload.quantity,
+          totalPrice: action.payload.totalPrice,
+        });
       }
     },
 
