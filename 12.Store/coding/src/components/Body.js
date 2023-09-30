@@ -24,20 +24,24 @@ const Body = () => {
   };
 
   const fetchData = async () => {
-    const data = await fetch(API_URL);
-    const json = await data?.json();
-    const resDataList =
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants ||
-      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants ||
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants ||
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-    console.log(json);
-    setAllRestaurants(resDataList);
-    setFilteredRestaurants(resDataList);
+    try {
+      const data = await fetch(API_URL);
+      const json = await data?.json();
+      const resDataList =
+        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants ||
+        json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants ||
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants ||
+        json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants;
+      console.log(json);
+      setAllRestaurants(resDataList);
+      setFilteredRestaurants(resDataList);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleToprated = () => {
@@ -51,8 +55,8 @@ const Body = () => {
   };
 
   return (
-    <div className="body">
-      <div className="flex justify-between my-6 mx-12">
+    <div className="body mx-12">
+      <div className="flex justify-between my-6">
         <div>
           <button
             className="transition-all px-4 mx-2 my-2 py-1 bg-red-300 hover:bg-red-400 hover:scale-105  rounded-lg"
@@ -86,7 +90,7 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-left">
         {filteredRestaurants?.map((restaurant, idx) => {
           return (
             <Link

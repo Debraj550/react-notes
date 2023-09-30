@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import cartSlice from "../utils/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import cartSlice, { removeItem } from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constants";
 
 const Cart = () => {
-  const cartData = useSelector((state) => state.cart.items); // Use the selector function
+  const cartData = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
+  const handleItemRemove = (item) => {
+    dispatch(removeItem(item));
+  };
+
   console.log(cartData);
   return (
     <div>
@@ -29,7 +34,10 @@ const Cart = () => {
               </p>
             </div>
             <div>
-              <button className="text-normal bg-red-500 text-white font-bold px-5 py-2 rounded-lg transition-all hover:scale-90 ">
+              <button
+                onClick={() => handleItemRemove(item)}
+                className="text-normal bg-red-500 text-white font-bold px-5 py-2 rounded-lg transition-all hover:scale-90 "
+              >
                 Remove
               </button>
             </div>

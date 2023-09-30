@@ -36,9 +36,12 @@ const RestaurantMenu = () => {
         return (
           <div
             key={idx}
-            className="bg-white px-2 py-1 my-2 w-6/12 m-auto rounded-lg cursor-pointer "
+            className="bg-white  w-6/12 m-auto rounded-lg cursor-pointer "
           >
-            <div className="bg-neutral-100 " onClick={() => handleClick(idx)}>
+            <div
+              className="bg-neutral-100 px-4 rounded-xl mb-2"
+              onClick={() => handleClick(idx)}
+            >
               <div className="flex justify-between border-b-2 border-gray-300">
                 <span className="font-bold text-lg">
                   {list?.card?.card?.title} (
@@ -52,7 +55,7 @@ const RestaurantMenu = () => {
               </div>
             </div>
             <div
-              className={`text-left bg-gray-50 mb-3 overflow-hidden transition-max-h ${
+              className={`text-left bg-gray-50 mb-2 overflow-hidden transition-all ${
                 openCardIdx === idx
                   ? "max-h-screen ease-in-out duration-500" // Adjust duration as needed
                   : "max-h-0 ease-in-out duration-500" // Adjust duration as needed
