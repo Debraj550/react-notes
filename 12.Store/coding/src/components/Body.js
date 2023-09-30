@@ -4,6 +4,8 @@ import RestaurantCard, { PromotedRestaurantCard } from "./RestaurantCard";
 import { API_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import Lottie from "lottie-react";
+import loadingRestaurantsSpiner from "../assets/loadingRestaurantsSpiner.json";
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
@@ -54,6 +56,14 @@ const Body = () => {
     setFilteredRestaurants(allRestaurants);
   };
 
+  if (allRestaurants.length === 0) {
+    return (
+      <div className="w-3/12 m-auto">
+        <Lottie animationData={loadingRestaurantsSpiner}></Lottie>
+      </div>
+    );
+  }
+
   return (
     <div className="body mx-12">
       <div className="flex justify-between my-6">
@@ -89,7 +99,6 @@ const Body = () => {
           </button>
         </div>
       </div>
-
       <div className="flex flex-wrap justify-left">
         {filteredRestaurants?.map((restaurant, idx) => {
           return (

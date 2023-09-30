@@ -26,7 +26,11 @@ const Cart = () => {
         <h1 className="text-center font-mono font-bold text-lg mt-10 bg-red-500 text-white rounded-lg">
           No items in the cart.
         </h1>
-        <Lottie className="bg-slate-50" animationData={emptycart}></Lottie>
+        <Lottie
+          className="bg-slate-50"
+          animationData={emptycart}
+          loop={true}
+        ></Lottie>
       </div>
     );
   }
