@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useRef } from "react";
 import ReactDOM from "react-dom/client";
 import Body from "./components/Body";
 import Header from "./components/Header";
@@ -19,11 +19,17 @@ const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
   const onlineStatus = useOnlineStatus();
+
+  const footerRef = useRef(null);
+  const scrollToFooter = () => {
+    footerRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <Provider store={appStore}>
       <UserContext.Provider value={{ loggedinUser: "Debraj Dhar" }}>
         <div className="app">
-          <Header />
+          <Header onAboutClick={scrollToFooter} />
           <div className="min-h-screen">
             {onlineStatus === false ? (
               <h1>You are offline. Check internet connection.</h1>
@@ -32,7 +38,7 @@ const AppLayout = () => {
             )}
           </div>
         </div>
-        <Footer />
+        <Footer ref={footerRef} />
       </UserContext.Provider>
     </Provider>
   );

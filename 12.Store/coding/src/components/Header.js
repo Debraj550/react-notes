@@ -5,13 +5,18 @@ import About from "./About";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
-const Header = () => {
+const Header = ({ onAboutClick }) => {
   const [isLoggedin, setIsLoggedin] = useState(false);
   const { loggedinUser } = useContext(UserContext);
 
   const cartItems = useSelector((store) => store.cart.items);
   const handleLogin = () => {
     setIsLoggedin((prev) => !prev);
+  };
+
+  const handleAboutClick = (e) => {
+    e.preventDefault(); // Prevent the default link behavior
+    onAboutClick();
   };
 
   return (
@@ -33,14 +38,12 @@ const Header = () => {
             </Link>
           </li>
           <li className="px-4 hover:text-red-600 transition-transform hover:scale-110">
-            <Link to="/about">
+            <Link to="" onClick={handleAboutClick}>
               <i className="fa-solid fa-circle-info"></i>
               {" About"}
             </Link>
           </li>
-          <li className="px-4 hover:text-red-600 transition-transform hover:scale-110">
-            <Link to="/contact">Contact Us</Link>
-          </li>
+
           <li className="px-4 hover:text-red-600 transition-transform hover:scale-110">
             <Link to="/grocery">Grocery</Link>
           </li>
