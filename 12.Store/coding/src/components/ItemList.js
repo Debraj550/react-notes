@@ -6,7 +6,8 @@ import { addItem } from "../utils/cartSlice";
 const ItemList = ({ items }) => {
   const dispatch = useDispatch();
   const handleAddItem = (item) => {
-    dispatch(addItem(item));
+    const newItem = { ...item, quantity: 1 };
+    dispatch(addItem(newItem));
   };
   return (
     <div>
@@ -17,7 +18,11 @@ const ItemList = ({ items }) => {
               <div className="font-semibold text-lg">
                 {item?.card?.info?.name}
               </div>
-              <div className="text-sm">₹{item?.card?.info?.price / 100}.00</div>
+              <div className="text-sm">
+                ₹
+                {item?.card?.info?.price / 100 ||
+                  item?.card?.info?.defaultPrice / 100}
+              </div>
               <p className="text-sm text-gray-600 font-normal">
                 {item?.card?.info?.description}
               </p>

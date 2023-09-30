@@ -28,12 +28,15 @@ const Cart = () => {
             </div>
             <div className="m-6 w-full text-left">
               <h1 className="font-semibold">{item.card.info.name}</h1>
-              <p>{item.card.info.description}</p>
-              <p className="text-gray-400">
-                Rs. {item.card.info.price / 100}.00
-              </p>
+              <p className="text-gray-400">{item.card.info.description}</p>
             </div>
-            <div>
+            <div className="">
+              <div>
+                <p className="font-semibold text-gray-600">
+                  Rs.{" "}
+                  {item.card.info.price / 100 || item?.card?.info?.defaultPrice}
+                </p>
+              </div>
               <button
                 onClick={() => handleItemRemove(item)}
                 className="text-normal bg-red-500 text-white font-bold px-5 py-2 rounded-lg transition-all hover:scale-90 "
