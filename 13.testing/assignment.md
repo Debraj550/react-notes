@@ -14,6 +14,16 @@
 - Pracetice `react context with examples`.
 - Try out `Nested Contexts`.
 
+## Setup
+
+- Install react testing library (https://testing-library.com/docs/react-testing-library/intro/)
+- Install jest (https://jestjs.io/docs/getting-started)
+- Install babel dependencies (https://jestjs.io/docs/getting-started)
+- Configure babel
+- Configure parcel to disable default babel transpilation (https://parceljs.org/languages/javascript/#babel)
+- run jest -> npx jest --init
+- install jsdom library (https://testing-library.com/docs/react-testing-library/setup)
+
 ## References:
 
 - [Lifting State Up](https://legacy.reactjs.org/docs/lifting-state-up.html)
