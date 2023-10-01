@@ -50,7 +50,10 @@ const Header = ({ onAboutClick }) => {
           <li className="px-4 hover:text-red-600 transition-transform hover:scale-110">
             <i className="fa-solid fa-cart-shopping"></i>
             <Link to={"/cart"}>
-              {" Cart"} ({cartItems.length})
+              {" Cart "}
+              {cartItems.length !== 0 && (
+                <span className="font-bold">({cartItems.length})</span>
+              )}
             </Link>
           </li>
           <li className="px-4 hover:text-red-600 transition-transform">

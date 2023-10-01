@@ -14,7 +14,7 @@ const ItemList = ({ items }) => {
     dispatch(addItem(newItem));
   };
   return (
-    <div className=" overflow-y-scroll">
+    <div className=" overflow-y-scroll cursor-default">
       {items?.map((item) => {
         return (
           <div key={item?.card?.info?.id} className="flex border-b-2">
@@ -24,16 +24,16 @@ const ItemList = ({ items }) => {
               </div>
               <div className="text-sm">
                 ₹
-                {item?.card?.info?.price / 100 ||
-                  item?.card?.info?.defaultPrice / 100}
+                {parseFloat(item?.card?.info?.price / 100).toFixed(2) ||
+                  parseFloat(item?.card?.info?.defaultPrice / 100).toFixed(2)}
               </div>
               <p className="text-sm text-gray-600 font-normal">
                 {item?.card?.info?.description}
               </p>
             </div>
-            <div className="w-3/12 relative items-center">
+            <div className="w-4/12 relative items-center px-4">
               <img
-                className="p-1 rounded-lg"
+                className="rounded-lg my-2"
                 src={
                   item.card.info.imageId
                     ? CDN_URL + item?.card?.info?.imageId
@@ -42,8 +42,8 @@ const ItemList = ({ items }) => {
               ></img>
               <button
                 onClick={() => handleAddItem(item)}
-                className="border-1 bottom-0
-                 bg-black text-white px-3 py-1 text-sm font-extrabold border-2 border-gray-700 rounded-lg w-full"
+                className="border-1 bottom-0 transition-all mb-2 hover:bg-gray-950
+                 bg-gray-800 text-white px-3 py-1 text-sm font-extrabold border-2 border-gray-700 rounded-lg w-full"
               >
                 Add to cart
               </button>

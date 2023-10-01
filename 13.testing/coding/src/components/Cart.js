@@ -34,7 +34,7 @@ const Cart = () => {
   if (cartData.length === 0) {
     return (
       <div className="w-6/12 m-auto">
-        <h1 className="text-center font-mono font-bold text-lg mt-10 bg-red-500 text-white rounded-lg">
+        <h1 className="text-center font-mono font-bold text-lg mt-10 bg-black text-white rounded-lg">
           No items in the cart.
         </h1>
         <Lottie
@@ -49,7 +49,7 @@ const Cart = () => {
   return (
     <div>
       <h2
-        className="flex justify-center p-2 mx-auto text-center font-mono font-bold text-lg mt-10 mb-5 w-6/12 bg-gray-700
+        className="flex justify-center p-2 mx-auto text-center font-mono font-bold text-lg mt-10 mb-5 w-6/12 bg-gray-900
        text-white rounded-lg"
       >
         Cart
@@ -57,7 +57,7 @@ const Cart = () => {
       <div className="bg-white-300">
         {cartData.map((item, idx) => (
           <div
-            className="bg-slate-50 rounded-lg border-b-2 mb-4 p-4  w-7/12 m-auto flex items-center justify-between"
+            className="bg-slate-50 rounded-lg border-b-2 shadow-lg mb-4 p-4  w-6/12 m-auto flex items-center justify-between"
             key={idx}
           >
             <div className="">
@@ -99,12 +99,12 @@ const Cart = () => {
           </div>
         ))}
       </div>
-      <div className="w-7/12 m-auto flex justify-end">
-        <h1 className="font-bold p-2 m-2 text-lg bg-slate-200 rounded-lg">
-          Total - {totalPrice}
+      <div className="w-6/12 m-auto flex justify-end">
+        <h1 className="font-semibold p-2 m-2 bg-slate-200 rounded-lg">
+          Total - {parseFloat(totalPrice).toFixed(2)}
         </h1>
       </div>
-      <div className="w-7/12 m-auto flex justify-end">
+      <div className="w-6/12 m-auto flex justify-end">
         <button
           onClick={() => handleEmptyCart()}
           className=" bg-red-500 text-white font-bold p-2 m-2 rounded-lg transition-all hover:scale-90"

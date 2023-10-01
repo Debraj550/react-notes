@@ -38,8 +38,11 @@ const RestaurantMenu = () => {
   console.log(foodSectionCards);
 
   return (
-    <div className="text-center p-2 m-6 text-2xl font-bold">
-      <h1 className="mb-4">{restroInfo?.name}</h1>
+    <div className="text-center p-2 m-6 font-bold">
+      <div className="mb-4 bg-red-500 py-2 w-6/12 m-auto text-white font-bold rounded-full text-xl">
+        <h1>{restroInfo?.name}</h1>
+      </div>
+
       {foodSectionCards?.map((list, idx) => {
         return (
           <div
@@ -51,7 +54,7 @@ const RestaurantMenu = () => {
               onClick={() => handleClick(idx)}
             >
               <div className="flex justify-between border-b-2 border-gray-300 items-center">
-                <span className="font-bold py-3 text-lg">
+                <span className="font-bold py-3 ">
                   {list?.card?.card?.title} (
                   {list?.card?.card?.itemCards?.length})
                 </span>
