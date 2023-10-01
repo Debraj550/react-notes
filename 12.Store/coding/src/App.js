@@ -30,7 +30,7 @@ const AppLayout = () => {
       <UserContext.Provider value={{ loggedinUser: "Debraj Dhar" }}>
         <div className="app">
           <Header onAboutClick={scrollToFooter} />
-          <div className="min-h-screen">
+          <div className="min-h-screen bg-neutral-100 py-1">
             {onlineStatus === false ? (
               <h1>You are offline. Check internet connection.</h1>
             ) : (
