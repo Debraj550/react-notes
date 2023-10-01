@@ -65,7 +65,7 @@ const Body = () => {
   }
 
   return (
-    <div className="body mx-12 ">
+    <div className="body mx-10 ">
       <div className="flex justify-between my-6">
         <div>
           <button

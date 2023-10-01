@@ -30,7 +30,7 @@ const Header = ({ onAboutClick }) => {
         </Link>
       </div>
       <div className="flex">
-        <ul className="flex p-4 m-4">
+        <ul className="flex p-4 m-4 items-center">
           <li className="px-4 hover:text-red-600 transition-transform hover:scale-110 cursor-pointer">
             <Link to="/">
               <i className="fa-solid fa-house"></i>
@@ -53,8 +53,11 @@ const Header = ({ onAboutClick }) => {
               {" Cart"} ({cartItems.length})
             </Link>
           </li>
-          <li className="px-4 hover:text-red-600 transition-transform hover:scale-110">
-            <button onClick={handleLogin}>
+          <li className="px-4 hover:text-red-600 transition-transform">
+            <button
+              className="px-4 py-2 bg-orange-600 font-bold rounded-lg text-white hover:bg-orange-700"
+              onClick={handleLogin}
+            >
               <i className="fa-solid fa-right-to-bracket"></i>
               {isLoggedin ? " logout" : " login"}
             </button>

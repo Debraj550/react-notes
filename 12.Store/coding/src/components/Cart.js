@@ -64,7 +64,7 @@ const Cart = () => {
                 <p className="font-semibold text-gray-600">
                   Rs.{" "}
                   {(item.card.info.price / 100 ||
-                    item?.card?.info?.defaultPrice) * item.quantity}
+                    item?.card?.info?.defaultPrice / 100) * item.quantity}
                 </p>
               </div>
               <div className="w-full flex justify-center">

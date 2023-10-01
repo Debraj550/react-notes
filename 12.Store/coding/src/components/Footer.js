@@ -8,7 +8,7 @@ const Footer = React.forwardRef((props, ref) => {
         <h1 className="text-4xl pt-6 pb-1 font-semibold">Fake Swiggy</h1>
         <p className="text-gray-400 text-xl font-bold">
           {" "}
-          (Educational Project - React, Redux, Tailwind)
+          (Educational Project - React, Redux, Tailwind, React Lottie)
         </p>
       </div>
 
@@ -24,13 +24,13 @@ const Footer = React.forwardRef((props, ref) => {
         <div>
           <h1 className="font-bold text-xl text-center">Connect with me</h1>
           <a href="https://www.linkedin.com/in/debraj1234/" target="_blank">
-            <i class="fa-brands fa-linkedin text-4xl mx-2"></i>
+            <i class="fa-brands fa-linkedin text-4xl mx-3"></i>
           </a>
           <a href="https://github.com/Debraj550" target="_blank">
-            <i class="fa-brands fa-github text-4xl mx-2"></i>
+            <i class="fa-brands fa-github text-4xl mx-3"></i>
           </a>
           <a href="https://leetcode.com/debrajdhar100/" target="_blank">
-            <i class="fa-solid fa-code text-4xl mx-2"></i>
+            <i class="fa-solid fa-code text-4xl mx-3"></i>
           </a>
         </div>
         <div>
